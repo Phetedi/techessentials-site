@@ -6,304 +6,1094 @@
 
   <title>TechEssentials (Pty) Ltd | Monitoring & Observability Services</title>
 
-  <meta name="description" content="TechEssentials (Pty) Ltd provides monitoring and observability services for modern, traditional, and hybrid IT environments." />
+  <meta name="description" content="TechEssentials (Pty) Ltd implements and manages monitoring, observability, and security platforms for modern, traditional, and hybrid IT environments in South Africa." />
   <meta name="keywords" content="IT Monitoring, Observability, Infrastructure Monitoring, Network Monitoring, Application Monitoring, South Africa" />
+  <link rel="canonical" href="https://www.techessentials.co.za/" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="TechEssentials (Pty) Ltd" />
+  <meta property="og:title" content="TechEssentials | Monitoring & Observability Implementation" />
+  <meta property="og:description" content="We implement, configure, and manage the monitoring, observability, and security platform of your choice — open-source, commercial, or cloud-native." />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:url" content="https://www.techessentials.co.za/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TechEssentials | Monitoring & Observability Implementation" />
+  <meta name="twitter:description" content="We implement, configure, and manage the monitoring, observability, and security platform of your choice — open-source, commercial, or cloud-native." />
+  <meta name="twitter:image" content="/og-image.jpg" />
+
+  <!-- Structured data: honest, no fabricated reviews/ratings -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "TechEssentials (Pty) Ltd",
+    "description": "Implementation and management of monitoring, observability, and security platforms across infrastructure, network, application, and cloud environments.",
+    "areaServed": "ZA",
+    "url": "https://www.techessentials.co.za/",
+    "email": "hello@techessentials.co.za"
+  }
+  </script>
+
   <style>
-    body { 
-        margin:0; 
-        font-family:Arial, Helvetica, sans-serif; 
-        background:#000; 
-        color:#e5e7eb; 
-        line-height:1.6; 
+    :root {
+      --bg: #000000;
+      --bg-2: #1a1a1a;
+      --bg-3: #323f4b;
+      --green: #22c55e;
+      --green-dark: #1ea34b;
+      --text: #e5e7eb;
+      --muted: #b6bec7;
+      --border: #2f3a44;
+      --shadow: rgba(0, 0, 0, 0.55);
+      --shadow-soft: rgba(0, 0, 0, 0.32);
+      --focus: #7ee8a8;
     }
-    
-    header { 
-        display:flex; 
-        justify-content:space-between; 
-        align-items:center; 
-        padding:40px 60px; 
-        background:linear-gradient(135deg, #000 0%, #1a1a1a 100%);
-        border-bottom:2px solid #22c55e; 
-        flex-wrap:wrap; 
+
+    * {
+      box-sizing: border-box;
     }
-    
-    .logo img { 
-        max-width:160px; 
-        filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.3));
+
+    html {
+      scroll-behavior: smooth;
     }
-    
-    .hero { 
-        max-width:720px; 
-        text-align:right; 
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
-    
-    .hero h1 { 
-        margin:0; 
-        font-size:2.4rem; 
-        color:#fff;
-        text-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+
+    img {
+      max-width: 100%;
+      height: auto;
     }
-    
-    .hero .tagline { 
-        color:#22c55e; 
-        font-weight:bold; 
-        margin:10px 0; 
-        font-size:1.1rem;
-        text-transform:uppercase;
-        letter-spacing:1px;
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
-    
-    section { 
-        max-width:1100px; 
-        margin:auto; 
-        padding:70px 20px; 
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: clamp(42px, 6vw, 60px) 20px;
+      scroll-margin-top: 76px;
     }
-    
-    h2 { 
-        color:#22c55e; 
-        margin-bottom:20px; 
-        font-size:2rem;
-        border-left:4px solid #22c55e;
-        padding-left:15px;
+
+    h1, h2, h3, p, ul {
+      min-width: 0;
     }
-    
+
+    h1 {
+      font-size: clamp(2rem, 3.2vw, 2.45rem);
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 2.8vw, 2rem);
+      color: var(--green);
+      margin: 0 0 20px 0;
+      border-left: 4px solid var(--green);
+      padding-left: 15px;
+      line-height: 1.2;
+    }
+
     h3 {
-        color:#22c55e;
+      color: var(--green);
+      margin-top: 0;
+      margin-bottom: 12px;
+      line-height: 1.25;
     }
-    
-    ul { 
-        padding-left:20px; 
+
+    p {
+      margin-top: 0;
+      margin-bottom: 14px;
     }
-    
-    .services { 
-        display:grid; 
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); 
-        gap:25px; 
+
+    ul {
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
     }
-    
-    .card { 
-        background:linear-gradient(135deg, #1a1a1a 0%, #323f4b 100%); 
-        padding:30px; 
-        border-radius:12px; 
-        box-shadow:0 4px 12px rgba(0,0,0,0.6); 
-        border:1px solid #323f4b;
-        transition: all 0.3s ease;
+
+    li {
+      margin-bottom: 8px;
     }
-    
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: var(--green);
+      color: #000;
+      padding: 12px 18px;
+      font-weight: bold;
+      z-index: 100;
+      border-radius: 0 0 8px 0;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+
+    /* Sticky nav */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 28px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .site-nav .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .site-nav .nav-brand img {
+      max-height: 30px;
+      width: auto;
+      display: block;
+    }
+
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .site-nav a:hover {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    .site-nav .nav-cta {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--green);
+      color: #000 !important;
+      font-weight: 700;
+    }
+
+    header.hero-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 38px 60px 28px;
+      background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 28%),
+        linear-gradient(135deg, #000 0%, #141414 45%, #1a1a1a 100%);
+      border-bottom: 2px solid var(--green);
+      flex-wrap: wrap;
+      gap: 26px;
+    }
+
+    .logo img {
+      max-width: 210px;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.3));
+      display: block;
+    }
+
+    .hero {
+      max-width: 760px;
+      text-align: right;
+      padding-top: 2px;
+    }
+
+    .hero .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 6px 12px;
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      border-radius: 999px;
+      color: var(--green);
+      font-size: 0.78rem;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      background: rgba(34, 197, 94, 0.06);
+    }
+
+    .hero h1 {
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(34, 197, 94, 0.18);
+      line-height: 1.12;
+    }
+
+    .hero .tagline {
+      color: var(--green);
+      font-weight: bold;
+      margin: 10px 0 8px;
+      font-size: 1.02rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #dbe2e8;
+      max-width: 620px;
+      margin-left: auto;
+      line-height: 1.62;
+    }
+
+    .hero-actions {
+      margin-top: 16px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      transition: all 0.28s ease;
+      letter-spacing: 0.2px;
+    }
+
+    .hero-actions a.primary {
+      background: var(--green);
+      color: #000;
+      border-color: var(--green);
+      box-shadow: 0 6px 14px rgba(34, 197, 94, 0.16);
+    }
+
+    .hero-actions a.primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(34, 197, 94, 0.22);
+      text-decoration: none;
+    }
+
+    .hero-actions a.secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: #e5e7eb;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-actions a.secondary:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+      background: rgba(34, 197, 94, 0.06);
+      text-decoration: none;
+    }
+
+    .why-choose-strip {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px 0;
+    }
+
+    .why-choose-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      background:
+        linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.03) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.22);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.24),
+        0 1px 0 rgba(255, 255, 255, 0.03) inset;
+      backdrop-filter: blur(4px);
+    }
+
+    .why-item {
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+
+    .why-item strong {
+      display: block;
+      color: var(--green);
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+      letter-spacing: 0.2px;
+    }
+
+    .why-item span {
+      color: #dbe2e8;
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .card {
+      background:
+        linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
+      padding: 30px 28px 30px;
+      border-radius: 18px;
+      box-shadow:
+        0 6px 18px var(--shadow),
+        0 1px 0 rgba(255,255,255,0.02) inset;
+      border: 1px solid var(--border);
+      transition:
+        transform 0.30s ease,
+        box-shadow 0.30s ease,
+        border-color 0.30s ease,
+        background 0.30s ease;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(34, 197, 94, 0.10) 0%, rgba(34, 197, 94, 0) 35%);
+      opacity: 0;
+      transition: opacity 0.30s ease;
+      pointer-events: none;
+    }
+
     .card:hover {
-        transform: translateY(-5px);
-        border-color:#22c55e;
-        box-shadow:0 8px 20px rgba(34, 197, 94, 0.2);
+      transform: translateY(-8px);
+      border-color: var(--green);
+      box-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.58),
+        0 0 0 1px rgba(34, 197, 94, 0.14);
+      background: linear-gradient(135deg, #1d1d1d 0%, #3a4755 100%);
     }
-    
-    .card h3 { 
-        color:#22c55e; 
-        margin-top:0; 
-        font-size:1.4rem;
-        margin-bottom:15px;
+
+    .card:hover::before {
+      opacity: 1;
     }
-    
-    footer { 
-        text-align:center; 
-        padding:30px 20px; 
-        background:#0a0a0a;
-        border-top:2px solid #22c55e; 
-        color:#9ca3af; 
-        font-size:0.9rem; 
+
+    .card p {
+      margin-bottom: 12px;
     }
-    
-    input, textarea, button { 
-        width:100%; 
-        margin-top:10px; 
-        padding:14px; 
-        border-radius:8px; 
-        border:2px solid #323f4b; 
-        font-size:1rem; 
-        background:#1a1a1a;
-        color:#fff;
-        transition: border-color 0.3s ease;
+
+    .card ul {
+      margin-top: 8px;
     }
-    
+
+    .service-card p {
+      margin-bottom: 0;
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 18px 0;
+      color: var(--green);
+      filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.16));
+      flex: 0 0 auto;
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .tool-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .tool-list li {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tool-list li:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .tool-list a {
+      font-weight: bold;
+    }
+
+    .tool-list small {
+      display: block;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .tech-callout {
+      margin: 18px 0 24px;
+      padding: 18px 18px;
+      border-left: 4px solid var(--green);
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.03) 100%);
+      border-radius: 10px;
+      color: #f3f4f6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
+      font-weight: 600;
+    }
+
+    .tech-callout strong {
+      color: var(--green);
+    }
+
+    .disclosure-note {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 400;
+      margin-top: 8px;
+    }
+
+    .founder-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 30px 28px;
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+
+    .founder-panel h3 {
+      margin-bottom: 6px;
+    }
+
+    .founder-role {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .startup-note {
+      margin-top: 22px;
+      padding: 16px 18px;
+      border: 1px dashed rgba(34, 197, 94, 0.35);
+      border-radius: 12px;
+      color: #dbe2e8;
+      font-size: 0.95rem;
+      background: rgba(34, 197, 94, 0.04);
+    }
+
+    .cta-panel {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(17, 24, 39, 0.25) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .cta-panel p {
+      margin-bottom: 14px;
+    }
+
+    .cta-panel .small-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #0a0a0a;
+      border-top: 2px solid var(--green);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .field-group {
+      margin-top: 14px;
+    }
+
+    .field-group:first-of-type {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #dbe2e8;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: 2px solid var(--bg-3);
+      font-size: 1rem;
+      background: var(--bg-2);
+      color: #fff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
     input:focus, textarea:focus {
-        outline:none;
-        border-color:#22c55e;
-        box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
     }
-    
-    button { 
-        background:#22c55e; 
-        color:#000; 
-        font-weight:bold; 
-        cursor:pointer; 
-        border:none;
-        text-transform:uppercase;
-        letter-spacing:1px;
-        transition: all 0.3s ease;
+
+    button {
+      margin-top: 20px;
+      background: var(--green);
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
     }
-    
+
     button:hover {
-        background:#1ea34b;
-        transform: scale(1.02);
-        box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+      background: var(--green-dark);
+      transform: scale(1.02);
+      box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
     }
-    
-    button:disabled { 
-        opacity:0.6; 
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
     }
-    
-    @media (max-width:768px){ 
-        header{flex-direction:column;text-align:center;} 
-        .hero{text-align:center;margin-top:20px;} 
+
+    .honeypot-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
     }
-</style>
-   
+
+    .faq h3 {
+      margin-bottom: 8px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 1024px) {
+      .services {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        max-width: 680px;
+      }
+
+      .logo img {
+        max-width: 190px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .site-nav ul {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header.hero-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 28px 16px 20px;
+        gap: 18px;
+      }
+
+      .hero {
+        text-align: center;
+        max-width: 100%;
+        padding-top: 0;
+      }
+
+      .hero p {
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .why-choose-strip {
+        padding: 14px 16px 0;
+      }
+
+      .why-choose-box {
+        grid-template-columns: 1fr;
+        padding: 14px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 24px 20px;
+      }
+
+      .service-icon {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 16px auto;
+      }
+
+      .cta-panel {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo img {
+        max-width: 170px;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero .tagline {
+        font-size: 0.95rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+
+      .hero-actions a {
+        width: 100%;
+        justify-content: center;
+      }
+
+      section {
+        padding: 38px 16px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      input,
+      textarea,
+      button {
+        padding: 13px;
+      }
+
+      .why-item {
+        padding: 11px 12px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-  <div class="logo"><img src="logo.jpg" alt="TechEssentials Logo"></div>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<nav class="site-nav" aria-label="Primary">
+  <a class="nav-brand" href="#top">
+    <img src="logo.jpg" alt="TechEssentials logo" width="120" height="30">
+    <span>TechEssentials</span>
+  </a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#tools">Technologies</a></li>
+    <li><a href="#tiers">Service Tiers</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Contact Us</a>
+</nav>
+
+<header class="hero-header" id="top">
+  <div class="logo">
+    <img src="logo.jpg" alt="TechEssentials logo">
+  </div>
+
   <div class="hero">
+    <span class="eyebrow">Monitoring • Observability • Security</span>
     <h1>Simplifying Daily Operations</h1>
     <p class="tagline">Insight That Keeps You Running</p>
-    <p>End-to-end monitoring, observability, and security solutions that ensure your IT environments remain resilient, optimized, and ironclad.</p>
+    <p>We implement, configure, and manage monitoring, observability, and security platforms so your IT environment stays visible, reliable, and secure.</p>
+
+    <div class="hero-actions">
+      <a class="primary" href="#contact">Talk to Us</a>
+      <a class="secondary" href="#services">Explore Services</a>
+    </div>
   </div>
 </header>
 
-<section>
+<div class="why-choose-strip">
+  <div class="why-choose-box">
+    <div class="why-item">
+      <strong>Tool-agnostic</strong>
+      <span>We implement the platform that fits your environment — not the one we're selling.</span>
+    </div>
+    <div class="why-item">
+      <strong>Implementation-focused</strong>
+      <span>Deployment, configuration, integration, and tuning for real operations.</span>
+    </div>
+    <div class="why-item">
+      <strong>Client-driven</strong>
+      <span>Pick the tool you want to use — we handle the setup and ongoing management.</span>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+
+<section id="about">
   <h2>About Us</h2>
-  <p>TechEssentials (Pty) Ltd delivers essential Monitoring, Observability, and Security services focused on improving visibility, reliability, compliance, and performance across IT environments.</p>
-  <p><strong>TechEssentials does not provide proprietary monitoring software.</strong> The company specializes in implementing, configuring, integrating, and managing established open-source, commercial, and cloud-native monitoring platforms based on business needs, technical requirements, and budget.</p>
-  <p>As implementation specialists, TechEssentials helps organizations turn monitoring tools into practical operational systems through proper design, deployment, dashboards, alerting, reporting, and continuous improvement.</p>
+  <p>TechEssentials (Pty) Ltd is a South African monitoring, observability, and security implementation service. We do not build or sell proprietary monitoring software — instead, we specialize in deploying, configuring, integrating, and managing established open-source, commercial, and cloud-native monitoring platforms based on your environment, requirements, and budget.</p>
+  <p>Monitoring is only useful once it's properly designed and operated. We focus on turning a chosen platform into a working system: dashboards that mean something, alerts that get acted on, and reporting that supports real decisions.</p>
   <ul>
-    <li>Maximize System Uptime</li>
-    <li>Reduce Operational Risk</li>
-    <li>Enable Data-Driven Insights</li>
-    <li>Strengthen Threat Detection</li>
-    <li>Implement the right monitoring tools for each environment</li>
+    <li>Maximize system uptime</li>
+    <li>Reduce operational risk</li>
+    <li>Enable data-driven insights</li>
+    <li>Strengthen threat detection</li>
+    <li>Implement the right monitoring tools for your environment</li>
   </ul>
+
+  <div class="startup-note">
+    <strong>TechEssentials is a newly established company.</strong> We haven't yet delivered a client engagement, and this site describes the services we're set up to offer, not a completed project history. What we do bring is the director's own implementation background — see below.
+  </div>
 </section>
 
 <section>
-  <h2>Why Monitoring, Observability, & Security Matter</h2>
-  <p>Modern businesses rely on complex IT systems to deliver services and support daily operations. Continuous monitoring, observability, and robust security analytics provide the deep visibility needed to proactively manage performance, availability, and risk before issues impact your bottom line.</p>
+  <h2>About the Director</h2>
+  <div class="founder-panel">
+    <div>
+      <h3>10+ Years in Monitoring Implementation</h3>
+      <p class="founder-role">Founder &amp; Director, TechEssentials (Pty) Ltd</p>
+      <p>TechEssentials was founded by an IT professional with over a decade of hands-on experience implementing, deploying, administering and operating monitoring, observability, and security tooling in production environments. That background — not a list of past clients — is what TechEssentials brings to a new engagement: practical familiarity with how these platforms behave once alerts start firing at 2am, not just how they look in a demo.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why Monitoring, Observability, &amp; Security Matter</h2>
+  <p>Modern businesses rely on complex IT systems to deliver services and support daily operations. Continuous monitoring, observability, and security analytics provide the visibility needed to manage performance, availability, and risk before issues affect the business.</p>
   <ul>
-    <li>Minimize Costly Downtime</li>
-    <li>Enhance User Experience</li>
-    <li>Strengthen Security Posture</li>
-    <li>Optimize Operational Decisions</li>
+    <li>Minimize costly downtime</li>
+    <li>Enhance user experience</li>
+    <li>Strengthen security posture</li>
+    <li>Optimize operational decisions</li>
     <li>Identify performance bottlenecks before escalation</li>
     <li>Support capacity planning and service improvement</li>
   </ul>
 </section>
 
 <section>
-  <h2>Common Monitoring & Security Challenges We Address</h2>
+  <h2>Common Monitoring &amp; Security Challenges</h2>
   <ul>
-    <li><strong>Resource constraints:</strong> Limited IT staff and operational capacity</li>
-    <li><strong>Complex environments:</strong> Visibility gaps across traditional, modern, cloud, and hybrid systems</li>
-    <li><strong>Alert fatigue:</strong> Excessive, duplicated, or low-value alerts</li>
-    <li><strong>Budget pressure:</strong> Balancing monitoring capability with cost</li>
-    <li><strong>Reactive operations:</strong> Moving from firefighting to proactive service management</li>
-    <li><strong>Blind-Spot Vulnerabilities:</strong> Centralized log analysis to detect suspicious activity and threat actors</li>
-    <li><strong>Compliance Overhead:</strong> Continuous tracking of security events and operational evidence</li>
-    <li><strong>Tool underutilization:</strong> Existing platforms not fully configured, integrated, or optimized</li>
+    <li><strong>Resource constraints:</strong> limited IT staff and operational capacity</li>
+    <li><strong>Complex environments:</strong> visibility gaps across traditional, modern, cloud, and hybrid systems</li>
+    <li><strong>Alert fatigue:</strong> excessive, duplicated, or low-value alerts</li>
+    <li><strong>Budget pressure:</strong> balancing monitoring capability with cost</li>
+    <li><strong>Reactive operations:</strong> moving from firefighting to proactive service management</li>
+    <li><strong>Blind-spot vulnerabilities:</strong> limited log analysis to detect suspicious activity</li>
+    <li><strong>Compliance overhead:</strong> continuous tracking of security events and operational evidence</li>
+    <li><strong>Tool underutilization:</strong> existing platforms not fully configured, integrated, or optimized</li>
   </ul>
 </section>
 
-<section>
-  <h2>What Makes TechEssentials Different</h2>
-  <p>TechEssentials is tool-agnostic. Operational goals, environment complexity, team capacity, and budget guide every platform recommendation and implementation approach.</p>
-  <ul>
-    <li><strong>Tool-agnostic expertise:</strong> Support for open-source, commercial, and cloud-native monitoring platforms</li>
-    <li><strong>Implementation-focused delivery:</strong> Design, deployment, configuration, integration, testing, and tuning of monitoring solutions</li>
-    <li><strong>Practical operations experience:</strong> Monitoring designed around real IT workflows, escalation paths, and business impact</li>
-    <li><strong>Cost-conscious recommendations:</strong> Tooling choices aligned with operational priorities and available budget</li>
-    <li><strong>Actionable alerting:</strong> Alert rules tuned to reduce noise and improve response quality</li>
-    <li><strong>Continuous improvement:</strong> Ongoing refinement of checks, dashboards, thresholds, and reports</li>
-  </ul>
-</section>
-
-<section>
+<section id="services">
   <h2>Our Services</h2>
   <div class="services">
-    <div class="card">
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="14" width="44" height="30" rx="4" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="10" y1="24" x2="54" y2="24" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="10" y1="34" x2="54" y2="34" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="16" y="18" width="8" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="28" y="18" width="8" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+          <rect x="40" y="18" width="8" height="6" rx="1" stroke="currentColor" stroke-width="2"/>
+          <path d="M22 52H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <h3>Enterprise Monitoring</h3>
       <p>Implementation and management of end-to-end IT systems monitoring for improved reliability, better service visibility, and stronger operational awareness.</p>
     </div>
-    <div class="card">
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="10" width="24" height="44" rx="3" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="20" y1="20" x2="44" y2="20" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="20" y1="30" x2="44" y2="30" stroke="currentColor" stroke-width="2.5"/>
+          <line x1="20" y1="40" x2="44" y2="40" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="26" cy="15" r="1.5" fill="currentColor"/>
+          <circle cx="30" cy="15" r="1.5" fill="currentColor"/>
+          <circle cx="34" cy="15" r="1.5" fill="currentColor"/>
+          <path d="M16 52H48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <h3>Infrastructure Monitoring</h3>
       <p>Deployment and configuration of monitoring for physical servers, virtual machines, storage platforms, operating systems, and cloud infrastructure.</p>
     </div>
-    <div class="card">
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="18" r="4" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="50" cy="18" r="4" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="32" cy="46" r="4" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M17 20L29 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M47 20L35 42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M18 18H46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M14 22V40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M50 22V40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <h3>Network Monitoring</h3>
       <p>Setup and management of monitoring for network devices, connectivity, bandwidth, availability, interface health, and traffic performance.</p>
     </div>
-    <div class="card">
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="14" y="12" width="36" height="40" rx="4" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="20" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="34" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="2.5"/>
+          <rect x="20" y="32" width="24" height="14" rx="2" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M24 37L30 33L36 38L40 35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <h3>Application Monitoring</h3>
       <p>Implementation of application health checks, service availability monitoring, response-time visibility, and performance indicators for critical systems.</p>
     </div>
-    <div class="card">
-      <h3>Observability & Visualization</h3>
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="12" width="44" height="40" rx="4" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M16 42L24 34L30 38L38 22L48 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M16 46H48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="24" cy="34" r="2" fill="currentColor"/>
+          <circle cx="30" cy="38" r="2" fill="currentColor"/>
+          <circle cx="38" cy="22" r="2" fill="currentColor"/>
+          <circle cx="48" cy="28" r="2" fill="currentColor"/>
+        </svg>
+      </div>
+      <h3>Observability &amp; Visualization</h3>
       <p>Dashboard design, metrics visualization, log visibility, and centralized insights that help technical teams understand system behavior and service impact.</p>
     </div>
-    <div class="card">
-      <h3>Alerting & Incident Awareness</h3>
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 12C27 12 23 16 23 21V28C23 31 21 34 18 36L16 37V41H48V37L46 36C43 34 41 31 41 28V21C41 16 37 12 32 12Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M26 46C27.5 49 29.5 50 32 50C34.5 50 36.5 49 38 46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="46" cy="18" r="5" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M46 15V18L48 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Alerting &amp; Incident Awareness</h3>
       <p>Configuration of actionable alerts, escalation paths, notification rules, thresholds, and incident awareness workflows so the right teams receive relevant information at the right time.</p>
     </div>
-    <div class="card">
-      <h3>Reporting & Operational Insights</h3>
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="16" y="12" width="32" height="40" rx="3" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M22 22H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 30H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 38H36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M22 46H40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M43 18V10L51 18" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Reporting &amp; Operational Insights</h3>
       <p>Custom reporting, trend analysis, capacity indicators, service health summaries, and operational insights for planning, performance reviews, and service improvement.</p>
     </div>
-    <div class="card">
-      <h3>Security & Compliance</h3>
+
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 10L48 16V28C48 39 40 47 32 52C24 47 16 39 16 28V16L32 10Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M24 32L29 37L40 25" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 20H42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Security &amp; Compliance</h3>
       <p>Implementation and tuning of log analysis, security event visibility, threat detection, and compliance-focused monitoring using suitable SIEM and logging platforms.</p>
     </div>
   </div>
 </section>
 
-<section>
+<section id="tools">
   <h2>Technologies We Work With</h2>
-  <p>TechEssentials helps clients implement and manage a wide range of monitoring, observability, logging, and security platforms.</p>
+  <p>TechEssentials helps clients implement and manage a range of monitoring, observability, logging, and security platforms.</p>
+
+  <div class="tech-callout">
+    <strong>The tools listed here are examples only — you are not limited to them.</strong> Choose any platform or tool you prefer, and we will implement or deploy it for you.
+    <div class="disclosure-note">TechEssentials is not an official partner, reseller, or certified integrator of any vendor listed below. Products and trademarks belong to their respective owners; links are provided for reference.</div>
+  </div>
+
   <div class="services">
     <div class="card">
       <h3>Open-Source Platforms</h3>
-      <ul>
-        <li>Icinga</li>
-        <li>CheckMK</li>
-        <li>Prometheus</li>
-        <li>Grafana</li>
-        <li>Wazuh</li>
-        <li>Graylog</li>
+      <ul class="tool-list">
+        <li>
+          <a href="https://icinga.com/" target="_blank" rel="noopener noreferrer">Icinga</a>
+          <small>Open-source monitoring and alerting platform</small>
+        </li>
+        <li>
+          <a href="https://checkmk.com/" target="_blank" rel="noopener noreferrer">Checkmk</a>
+          <small>Infrastructure and application monitoring</small>
+        </li>
+        <li>
+          <a href="https://prometheus.io/" target="_blank" rel="noopener noreferrer">Prometheus</a>
+          <small>Metrics collection and alerting system</small>
+        </li>
+        <li>
+          <a href="https://grafana.com/" target="_blank" rel="noopener noreferrer">Grafana</a>
+          <small>Dashboards, visualization, and observability</small>
+        </li>
+        <li>
+          <a href="https://wazuh.com/" target="_blank" rel="noopener noreferrer">Wazuh</a>
+          <small>Security monitoring, SIEM, and endpoint visibility</small>
+        </li>
+        <li>
+          <a href="https://graylog.org/" target="_blank" rel="noopener noreferrer">Graylog</a>
+          <small>Log management and analysis platform</small>
+        </li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Commercial Platforms</h3>
-      <ul>
-        <li>Operation Bridge Manager</li>
-        <li>Splunk</li>
-        <li>SolarWinds</li>
-        <li>PRTG</li>
-        <li>WhatsupGold</li>
+      <ul class="tool-list">
+        <li>
+          <a href="https://www.opentext.com/products/operations-bridge" target="_blank" rel="noopener noreferrer">Operations Bridge Manager</a>
+          <small>Enterprise operations and event management</small>
+        </li>
+        <li>
+          <a href="https://www.splunk.com/" target="_blank" rel="noopener noreferrer">Splunk</a>
+          <small>Security, observability, and data analytics</small>
+        </li>
+        <li>
+          <a href="https://www.solarwinds.com/" target="_blank" rel="noopener noreferrer">SolarWinds</a>
+          <small>Infrastructure and network monitoring tools</small>
+        </li>
+        <li>
+          <a href="https://www.paessler.com/prtg" target="_blank" rel="noopener noreferrer">PRTG</a>
+          <small>Network monitoring and sensor-based visibility</small>
+        </li>
+        <li>
+          <a href="https://www.progress.com/whatsup-gold" target="_blank" rel="noopener noreferrer">WhatsUp Gold</a>
+          <small>Network, server, and application monitoring</small>
+        </li>
       </ul>
     </div>
+
     <div class="card">
       <h3>Cloud-Native Tools</h3>
-      <ul>
-        <li>AWS CloudWatch</li>
-        <li>Azure Monitor</li>
-        <li>Google Cloud Operations</li>
+      <ul class="tool-list">
+        <li>
+          <a href="https://aws.amazon.com/cloudwatch/" target="_blank" rel="noopener noreferrer">AWS CloudWatch</a>
+          <small>Amazon cloud observability and monitoring</small>
+        </li>
+        <li>
+          <a href="https://azure.microsoft.com/en-us/products/monitor/" target="_blank" rel="noopener noreferrer">Azure Monitor</a>
+          <small>Microsoft Azure monitoring and diagnostics</small>
+        </li>
+        <li>
+          <a href="https://cloud.google.com/products/operations" target="_blank" rel="noopener noreferrer">Google Cloud Operations</a>
+          <small>Monitoring, logging, and tracing for GCP</small>
+        </li>
       </ul>
     </div>
   </div>
 </section>
 
-<section>
+<section id="tiers">
   <h2>Service Tiers</h2>
   <div class="services">
-    <div class="card">
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="18" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M32 20V32L40 36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 46H44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <h3>Essential Monitoring</h3>
       <p>Core infrastructure monitoring providing 24/7 visibility into server, network, and service availability.</p>
       <ul>
-        <li>Windows & Linux server monitoring</li>
+        <li>Windows &amp; Linux server monitoring</li>
         <li>Network devices and connectivity checks</li>
         <li>Basic alerting and uptime tracking</li>
         <li>Implementation of suitable monitoring checks</li>
@@ -311,11 +1101,18 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 44L24 34L32 38L40 24L50 28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="12" y="12" width="40" height="40" rx="4" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M16 48H48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <h3>Advanced Monitoring</h3>
       <p>Deeper performance monitoring with trend analysis, capacity indicators, and improved alerting accuracy for growing environments.</p>
       <ul>
-        <li>Application & service health checks</li>
+        <li>Application &amp; service health checks</li>
         <li>Performance and capacity indicators</li>
         <li>Alert tuning and noise reduction</li>
         <li>Custom dashboards and reporting setup</li>
@@ -323,8 +1120,18 @@
       </ul>
     </div>
 
-    <div class="card">
-      <h3>Insight & Observability</h3>
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="44" height="44" rx="4" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M18 40H46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M18 34H30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M18 28H40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="42" cy="28" r="3" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M40 46L46 52" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Insight &amp; Observability</h3>
       <p>Enhanced visibility using metrics, logs, dashboards, and contextual insights that explain system behavior and operational impact.</p>
       <ul>
         <li>Centralized dashboards</li>
@@ -335,15 +1142,23 @@
       </ul>
     </div>
 
-    <div class="card">
+    <div class="card service-card">
+      <div class="service-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 12C25 12 20 17 20 24V30C20 35 18 38 14 41V45H50V41C46 38 44 35 44 30V24C44 17 39 12 32 12Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M25 48C27 51 29.5 52 32 52C34.5 52 37 51 39 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="48" cy="18" r="5" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M48 15V18L50 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <h3>Security SIEM Operations</h3>
       <p>Delivers real-time visibility, proactive threat detection, and continuous compliance monitoring across your infrastructure.</p>
       <ul>
-        <li>Host IDS & Rootkit Detection</li>
-        <li>File Integrity Monitoring</li>
-        <li>Active Response Mitigation</li>
-        <li>Multi-source Log Correlation</li>
-        <li>Security Alerting & SIEM</li>
+        <li>Host IDS &amp; rootkit detection</li>
+        <li>File integrity monitoring</li>
+        <li>Active response mitigation</li>
+        <li>Multi-source log correlation</li>
+        <li>Security alerting &amp; SIEM</li>
       </ul>
     </div>
   </div>
@@ -386,57 +1201,110 @@
   <p>Services are delivered under a clear agreement defining scope, alerting methods, reporting frequency, access requirements, escalation responsibilities, and operational boundaries. Monitoring focuses on visibility, detection, alerting, and reporting; remediation is handled separately unless explicitly agreed.</p>
 </section>
 
-<section>
+<section id="faq" class="faq">
   <h2>Frequently Asked Questions</h2>
-  
+
   <h3>Does TechEssentials provide proprietary monitoring software?</h3>
-  <p>No. TechEssentials does not provide proprietary monitoring software. The company specializes in implementing, configuring, integrating, and managing established open-source, commercial, and cloud-native monitoring platforms.</p>
-  
+  <p>No. TechEssentials does not build or sell monitoring software. We implement, configure, integrate, and manage established open-source, commercial, and cloud-native monitoring platforms on your behalf.</p>
+
+  <h3>Is TechEssentials a partner of the tool vendors listed on this site?</h3>
+  <p>No. TechEssentials is not an official partner, reseller, or certified integrator of any vendor listed above. We implement these platforms as independent specialists, based on hands-on experience with the tools.</p>
+
+  <h3>How experienced is TechEssentials?</h3>
+  <p>TechEssentials is a newly established company and has not yet completed a client engagement. The director has over 10 years of hands-on experience implementing monitoring tools in production environments, which underpins the services offered here.</p>
+
   <h3>What happens when monitoring tools are already in place?</h3>
-  <p>Existing monitoring tools can be assessed, optimized, expanded, or reconfigured. TechEssentials can improve coverage, tune alerts, redesign dashboards, clean up noisy notifications, enhance reporting, and align monitoring with operational goals.</p>
-  
+  <p>Existing monitoring tools can be assessed, optimized, expanded, or reconfigured. We can improve coverage, tune alerts, redesign dashboards, reduce noisy notifications, and align monitoring with operational goals.</p>
+
   <h3>Can TechEssentials recommend the right monitoring platform?</h3>
-  <p>Yes. Platform recommendations are based on the environment, requirements, team capacity, budget, technical goals, licensing position, and existing operational processes.</p>
-  
-  <h3>Does TechEssentials support both open-source and enterprise solutions?</h3>
-  <p>Yes. TechEssentials works with open-source, commercial, and cloud-native technologies, helping organizations select and implement suitable monitoring, observability, logging, and security platforms.</p>
-  
+  <p>Yes. Platform recommendations are based on your environment, requirements, team capacity, budget, technical goals, licensing position, and existing operational processes.</p>
+
   <h3>Can monitoring be implemented in cloud and hybrid environments?</h3>
   <p>Yes. Monitoring can be implemented across on-premises infrastructure, cloud platforms, hybrid environments, virtual machines, containers, applications, networks, and security logs.</p>
 </section>
 
-<section>
+<section id="contact">
   <h2>Contact Us</h2>
-  <p>Contact TechEssentials to discuss a monitoring assessment, tool recommendation, implementation project, or optimization of an existing monitoring environment.</p>
-  <form id="contact-form">
-    <input type="text" name="_gotcha" style="display:none">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit" id="submit-btn">
-      <span id="btn-text">Request a Monitoring Consultation</span>
-      <span id="spinner" style="display:none;">Sending...</span>
-    </button>
-    <p id="form-success" style="display:none;color:#22c55e;margin-top:15px;">✅ Thank you! Your message has been sent.</p>
-    <p id="form-error" style="display:none;color:#ef4444;margin-top:15px;">❌ Something went wrong. Please try again later.</p>
-  </form>
+  <div class="cta-panel">
+    <p><strong>Ready to implement the monitoring tool of your choice?</strong></p>
+    <p>Whether you choose one of the platforms listed above or another tool entirely, we can help you design, deploy, configure, and support it.</p>
+    <p>Get in touch to discuss a monitoring assessment, platform recommendation, implementation project, or optimization of an existing environment.</p>
+    <p class="small-note">We work with your preferred technology — open-source, commercial, cloud-native, or custom.</p>
+
+    <form id="contact-form">
+      <div class="honeypot-field" aria-hidden="true">
+        <label for="gotcha">Leave this field empty</label>
+        <input type="text" id="gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="field-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+      </div>
+
+      <div class="field-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </div>
+
+      <div class="field-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" id="submit-btn">
+        <span id="btn-text">Start Your Monitoring Project</span>
+        <span id="spinner" style="display:none;">Sending...</span>
+      </button>
+      <p id="form-success" role="status" aria-live="polite" style="display:none;color:#22c55e;margin-top:15px;">✅ Thank you! Your message has been sent.</p>
+      <p id="form-error" role="alert" aria-live="assertive" style="display:none;color:#ef4444;margin-top:15px;">❌ Something went wrong. Please try again later.</p>
+    </form>
+  </div>
 </section>
+
+</main>
 
 <footer>
   <p><strong>TechEssentials (Pty) Ltd</strong></p>
-  <p>Implementation Specialists | Open-Source and Enterprise Solutions</p>
-  <p>Monitoring - Observability - Security Services | South Africa</p>
-  <p>© 2019 TechEssentials (Pty) Ltd. All rights reserved.</p>
+  <p>Monitoring, Observability &amp; Security Implementation | South Africa</p>
+  <p>Not affiliated with or an official partner of the vendors referenced on this site.</p>
+  <p>© <span id="copyright-year">2026</span> TechEssentials (Pty) Ltd. All rights reserved.</p>
 </footer>
 
 <script>
-const form=document.getElementById("contact-form");
-const btn=document.getElementById("submit-btn");
-const txt=document.getElementById("btn-text");
-const spin=document.getElementById("spinner");
-const ok=document.getElementById("form-success");
-const err=document.getElementById("form-error");
-form.addEventListener("submit",async e=>{e.preventDefault();txt.style.display="none";spin.style.display="inline";btn.disabled=true;try{const r=await fetch("https://formspree.io/f/mzddpnaz",{method:"POST",body:new FormData(form),headers:{"Accept":"application/json"}});r.ok?(form.reset(),ok.style.display="block"):err.style.display="block";}catch{err.style.display="block"}finally{spin.style.display="none";txt.style.display="inline";btn.disabled=false;}});
+const form = document.getElementById("contact-form");
+const btn = document.getElementById("submit-btn");
+const txt = document.getElementById("btn-text");
+const spin = document.getElementById("spinner");
+const ok = document.getElementById("form-success");
+const err = document.getElementById("form-error");
+
+document.getElementById("copyright-year").textContent = new Date().getFullYear();
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  ok.style.display = "none";
+  err.style.display = "none";
+  txt.style.display = "none";
+  spin.style.display = "inline";
+  btn.disabled = true;
+
+  try {
+    const r = await fetch("https://formspree.io/f/mzddpnaz", {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    });
+
+    r.ok ? (form.reset(), ok.style.display = "block") : err.style.display = "block";
+  } catch {
+    err.style.display = "block";
+  } finally {
+    spin.style.display = "none";
+    txt.style.display = "inline";
+    btn.disabled = false;
+  }
+});
 </script>
 
 </body>
