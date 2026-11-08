@@ -31,7 +31,14 @@
     "description": "Implementation and management of monitoring, observability, and security platforms across infrastructure, network, application, and cloud environments.",
     "areaServed": "ZA",
     "url": "https://www.techessentials.co.za/",
-    "email": "hello@techessentials.co.za"
+    "email": "info@techessentials.co.za",
+    "telephone": "+27623227297",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Midrand",
+      "addressRegion": "Gauteng",
+      "addressCountry": "ZA"
+    }
   }
   </script>
 
@@ -754,6 +761,39 @@
       .why-item {
         padding: 11px 12px;
       }
+
+      .contact-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin: 20px 0 26px;
+     }
+
+     .contact-item {
+       padding: 14px 16px;
+       border-radius: 12px;
+       background: rgba(255, 255, 255, 0.03);
+       border: 1px solid rgba(255, 255, 255, 0.07);
+     }
+
+     .contact-item strong {
+       display: block;
+       color: var(--green);
+       margin-bottom: 4px;
+       font-size: 0.82rem;
+       letter-spacing: 0.8px;
+       text-transform: uppercase;
+     }
+
+     .contact-item span,
+     .contact-item address {
+       display: block;
+       color: #dbe2e8;
+       font-style: normal;
+       line-height: 1.6;
+       overflow-wrap: anywhere;
+     }
+
     }
   </style>
 </head>
@@ -1231,6 +1271,24 @@
     <p>Get in touch to discuss a monitoring assessment, platform recommendation, implementation project, or optimization of an existing environment.</p>
     <p class="small-note">We work with your preferred technology — open-source, commercial, cloud-native, or custom.</p>
 
+      <div class="contact-details">
+      <div class="contact-item">
+        <strong>Phone</strong>
+        <span><a href="tel:+27623227297">+27 62 322 7297</a></span>
+      </div>
+      <div class="contact-item">
+        <strong>Email</strong>
+        <span>
+          <a href="mailto:info@techessentials.co.za">info@techessentials.co.za</a><br>
+          <a href="mailto:support@techessentials.co.za">support@techessentials.co.za</a>
+        </span>
+      </div>
+      <div class="contact-item">
+        <strong>Location</strong>
+        <address>Blue Hills, Midrand<br>Gauteng, South Africa</address>
+      </div>
+    </div>
+      
     <form id="contact-form">
       <div class="honeypot-field" aria-hidden="true">
         <label for="gotcha">Leave this field empty</label>
