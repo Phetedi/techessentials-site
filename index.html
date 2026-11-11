@@ -1113,6 +1113,203 @@
      a.core-tool.growing:hover {
        border-color: var(--green);
     }
+
+      /* ------------------------------------------------------------
+       Batch 2: hero monitoring line, scroll reveal, tier comparison
+       ------------------------------------------------------------ */
+ 
+    /* Hero: animated monitoring line */
+    header.hero-header {
+      position: relative;
+      overflow: hidden;
+    }
+ 
+    header.hero-header > .logo,
+    header.hero-header > .hero {
+      position: relative;
+      z-index: 1;
+    }
+ 
+    .hero-pulse {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 110px;
+      pointer-events: none;
+      filter: drop-shadow(0 0 5px rgba(34, 197, 94, 0.55));
+    }
+ 
+    .hero-pulse path {
+      fill: none;
+      stroke: var(--green);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+ 
+    .hero-pulse-base {
+      stroke-width: 1.5;
+      opacity: 0.16;
+    }
+ 
+    .hero-pulse-glow {
+      stroke-width: 2.5;
+      stroke-dasharray: 0.12 1;
+      stroke-dashoffset: 0.12;
+      animation: hero-pulse-sweep 6s linear infinite;
+    }
+ 
+    @keyframes hero-pulse-sweep {
+      from { stroke-dashoffset: 0.12; }
+      to   { stroke-dashoffset: -1; }
+    }
+ 
+    @media (max-width: 768px) {
+      .hero-pulse {
+        height: 70px;
+      }
+    }
+ 
+    /* Scroll reveal (classes are added by the script only when it runs) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+ 
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+ 
+    /* Tier comparison table */
+    .compare-hint {
+      display: none;
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+ 
+    .compare-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-3) 100%);
+      box-shadow: 0 6px 18px var(--shadow);
+    }
+ 
+    .compare-wrap:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+ 
+    .compare-table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+ 
+    .compare-table th,
+    .compare-table td {
+      padding: 13px 16px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+ 
+    .compare-table thead th {
+      color: var(--green);
+      font-size: 0.95rem;
+      line-height: 1.3;
+      background: rgba(0, 0, 0, 0.25);
+      border-bottom: 2px solid rgba(34, 197, 94, 0.35);
+    }
+ 
+    .compare-table thead th small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
+ 
+    .compare-table tbody th {
+      text-align: left;
+      color: var(--text);
+      font-weight: 600;
+    }
+ 
+    .compare-table tbody tr:last-child th,
+    .compare-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+ 
+    .compare-table tbody tr:not(.cmp-group):hover {
+      background: rgba(34, 197, 94, 0.05);
+    }
+ 
+    .compare-table .cmp-group th {
+      padding: 8px 16px;
+      text-align: left;
+      color: var(--green);
+      background: rgba(34, 197, 94, 0.07);
+      font-size: 0.78rem;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+ 
+    .cmp-yes {
+      color: var(--green);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+ 
+    .cmp-no {
+      color: #5b6672;
+    }
+ 
+    .cmp-text {
+      color: #dbe2e8;
+      font-size: 0.9rem;
+    }
+ 
+    .compare-note {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+ 
+    @media (max-width: 860px) {
+      .compare-hint {
+        display: block;
+      }
+ 
+      .compare-table thead th:first-child,
+      .compare-table tbody tr:not(.cmp-group) th {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: #1c2229;
+      }
+    }
+
+ 
+      header.hero-header {
+      padding-bottom: 84px;
+    }
+
+    @media (max-width: 768px) {
+      header.hero-header {
+        padding-bottom: 72px;
+      }
+    }
+
+       .compare-table thead th:first-child {
+      text-align: left;
+    }
   </style>
 
 </head>
@@ -1142,6 +1339,10 @@
 </nav>
 
 <header class="hero-header" id="top">
+  <svg class="hero-pulse" viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">
+    <path class="hero-pulse-base" pathLength="1" d="M0 70 H240 L254 25 L276 105 L292 55 L302 70 H620 L634 25 L656 105 L672 55 L682 70 H980 L994 25 L1016 105 L1032 55 L1042 70 H1200"/>
+    <path class="hero-pulse-glow" pathLength="1" d="M0 70 H240 L254 25 L276 105 L292 55 L302 70 H620 L634 25 L656 105 L672 55 L682 70 H980 L994 25 L1016 105 L1032 55 L1042 70 H1200"/>
+  </svg>
   <div class="logo">
     <img src="logo.jpg" alt="TechEssentials logo">
   </div>
@@ -1151,11 +1352,6 @@
     <h1>Simplifying Daily Operations</h1>
     <p class="tagline">Insight That Keeps You Running</p>
     <p>We implement, configure, and manage monitoring, observability, and security platforms so your IT environment stays visible, reliable, and secure.</p>
-
-    <div class="hero-actions">
-      <a class="primary" href="#contact">Talk to Us</a>
-      <a class="secondary" href="#services">Explore Services</a>
-    </div>
   </div>
 </header>
 
@@ -1513,6 +1709,139 @@
   </div>
 </section>
 
+<section id="compare">
+  <h2>Compare the Tiers</h2>
+  <p>Essential, Advanced, and Insight &amp; Observability build on each other. Security SIEM Operations is a separate package, available on request. Every engagement is scoped to your environment.</p>
+
+  <p class="compare-hint">Swipe sideways to see all tiers.</p>
+  <div class="compare-wrap" role="region" aria-label="Service tier comparison" tabindex="0">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th scope="col">Capability</th>
+          <th scope="col">Essential<br>Monitoring</th>
+          <th scope="col">Advanced<br>Monitoring</th>
+          <th scope="col">Insight &amp;<br>Observability</th>
+          <th scope="col">Security SIEM<br>Operations<small>Separate package &middot; On request</small></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cmp-group"><th colspan="5" scope="colgroup">Availability</th></tr>
+        <tr>
+          <th scope="row">Windows &amp; Linux server monitoring</th>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Network devices &amp; connectivity checks</th>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Uptime tracking &amp; basic alerting</th>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr class="cmp-group"><th colspan="5" scope="colgroup">Performance</th></tr>
+        <tr>
+          <th scope="row">Application &amp; service health checks</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Performance &amp; capacity indicators</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Alert tuning &amp; noise reduction</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Integration with existing tools &amp; processes</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr class="cmp-group"><th colspan="5" scope="colgroup">Insight</th></tr>
+        <tr>
+          <th scope="row">Dashboards</th>
+          <td class="cmp-text">Initial setup</td>
+          <td class="cmp-text">Custom</td>
+          <td class="cmp-text">Custom &amp; centralized</td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Reporting</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td class="cmp-text">Setup</td>
+          <td class="cmp-text">Setup + executive &amp; technical</td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Trend &amp; anomaly visibility</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Observability platform implementation</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+        </tr>
+        <tr class="cmp-group"><th colspan="5" scope="colgroup">Security</th></tr>
+        <tr>
+          <th scope="row">Host IDS, rootkit detection &amp; file integrity monitoring</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Multi-source log correlation</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Security alerting &amp; SIEM</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Active response mitigation</th>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-no" role="img" aria-label="Not part of this tier">&mdash;</span></td>
+          <td><span class="cmp-yes" role="img" aria-label="Included">&#10003;</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="compare-note">A dash means the item is not a standard part of that tier.</p>
+</section>
+
+
 <section>
   <h2>How We Work</h2>
   <ul>
@@ -1720,6 +2049,50 @@ if (waFloat && contactSection && "IntersectionObserver" in window) {
     waFloat.classList.toggle("wa-hide", entries[0].isIntersecting);
   }, { threshold: 0.15 }).observe(contactSection);
 }
+</script>
+
+<script>
+(function () {
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+
+  var selector = [
+    "main section > h2",
+    "main section > p",
+    "main section > ul",
+    ".card",
+    ".other-group",
+    ".founder-panel",
+    ".startup-note",
+    ".tech-callout",
+    ".faq details",
+    ".compare-wrap",
+    ".cta-panel"
+  ].join(", ");
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add("is-visible");
+      observer.unobserve(el);
+      // Clean up afterwards so normal hover effects are not affected
+      setTimeout(function () {
+        el.classList.remove("reveal", "is-visible");
+        el.style.transitionDelay = "";
+      }, 1300);
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+  document.querySelectorAll(selector).forEach(function (el) {
+    // Anything already on screen when the page loads is left alone
+    if (el.getBoundingClientRect().top < window.innerHeight - 40) return;
+    var position = Array.prototype.indexOf.call(el.parentNode.children, el);
+    el.style.transitionDelay = (position % 4) * 90 + "ms";
+    el.classList.add("reveal");
+    observer.observe(el);
+  });
+})();
 </script>
 
 </body>
