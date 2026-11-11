@@ -1307,9 +1307,15 @@
       }
     }
 
-       .compare-table thead th:first-child {
+    .compare-table thead th:first-child {
       text-align: left;
     }
+    .form-privacy {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
   </style>
 
 </head>
@@ -1962,7 +1968,8 @@
         <label for="message">Your Message</label>
         <textarea id="message" name="message" rows="5" required></textarea>
       </div>
-
+      
+      <p class="form-privacy">We use your details only to respond to your enquiry. See our <a href="/privacy.html">Privacy Notice</a>.</p>
       <button type="submit" id="submit-btn">
         <span id="btn-text">Start Your Monitoring Project</span>
         <span id="spinner" style="display:none;">Sending...</span>
@@ -1979,6 +1986,7 @@
   <p><strong>TechEssentials (Pty) Ltd</strong></p>
   <p>Monitoring, Observability &amp; Security Implementation | South Africa</p>
   <p>Not affiliated with or an official partner of the vendors referenced on this site.</p>
+  <p><a href="/privacy.html">Privacy Notice</a></p>
   <p>© <span id="copyright-year">2026</span> TechEssentials (Pty) Ltd. All rights reserved.</p>
 </footer>
 <a class="wa-float" href="https://wa.me/27623227297?text=Hi%20TechEssentials%2C%20I%27d%20like%20to%20discuss%20monitoring%20for%20my%20business." target="_blank" rel="noopener noreferrer" aria-label="Chat with TechEssentials on WhatsApp">
