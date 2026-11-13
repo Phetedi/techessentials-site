@@ -1345,6 +1345,388 @@
       }
     }
 
+      /* Showcase section with illustrative dashboard */
+    .showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+      gap: 36px;
+      align-items: center;
+    }
+
+    .showcase-list {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+    }
+
+    .showcase-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .showcase-list .tick {
+      flex: 0 0 auto;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .dash-figure {
+      margin: 0;
+    }
+
+    .dash-card {
+      overflow: hidden;
+      border-radius: 16px;
+      background: #0d1117;
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(34, 197, 94, 0.15);
+    }
+
+    .dash-card svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .dash-caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    /* Dashboard animation: line draws in, area fades in, end dot pulses */
+    .dash-line {
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      animation: dash-draw 2.4s ease-out 0.3s forwards;
+    }
+
+    .dash-area {
+      opacity: 0;
+      animation: dash-fade 1s ease-out 1.6s forwards;
+    }
+
+    .dash-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: dash-ping 2.2s ease-out 2.4s infinite;
+    }
+
+    .dash-warn {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: dash-ping 2.6s ease-out 1s infinite;
+    }
+
+    /* While the card is off-screen, hold the animation until it is seen */
+    .dash-card.armed:not(.is-live) .dash-line,
+    .dash-card.armed:not(.is-live) .dash-area,
+    .dash-card.armed:not(.is-live) .dash-pulse,
+    .dash-card.armed:not(.is-live) .dash-warn {
+      animation-play-state: paused;
+    }
+
+    @keyframes dash-draw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes dash-fade {
+      to { opacity: 1; }
+    }
+
+    @keyframes dash-ping {
+      0%   { transform: scale(1); opacity: 0.6; }
+      100% { transform: scale(3.2); opacity: 0; }
+    }
+
+    @media (max-width: 900px) {
+      .showcase {
+        grid-template-columns: 1fr;
+      }
+    }
+
+       /* ------------------------------------------------------------
+       Technologies: "how the pieces fit together" diagram
+       ------------------------------------------------------------ */
+    .arch-wrap {
+      margin-top: 18px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
+    }
+
+    .arch {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) 36px minmax(0, 0.85fr) 36px minmax(0, 1fr) 36px minmax(0, 1.15fr);
+      align-items: stretch;
+    }
+
+    .arch-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .arch-title {
+      margin: 0 0 2px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .arch-node {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #151b22;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .arch-node:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .arch-node strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+      line-height: 1.25;
+    }
+
+    .arch-node small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.35;
+    }
+
+    .arch-icon {
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      color: var(--green);
+    }
+
+    .arch-tall {
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .arch-tall .arch-icon {
+      width: 34px;
+      height: 34px;
+    }
+
+    .arch-chip {
+      display: block;
+      width: 100%;
+      padding: 7px 12px;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.06);
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .arch-note {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .arch-arrow {
+      position: relative;
+      align-self: center;
+      justify-self: center;
+      width: 30px;
+      height: 2px;
+      margin-top: 28px;
+      background: linear-gradient(90deg, var(--green) 50%, transparent 50%);
+      background-size: 12px 2px;
+      animation: arch-flow 1s linear infinite;
+    }
+
+    .arch-arrow::after {
+      content: "";
+      position: absolute;
+      right: -3px;
+      top: -4px;
+      border-left: 7px solid var(--green);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+
+    @keyframes arch-flow {
+      to { background-position: 12px 0; }
+    }
+
+    @keyframes arch-flow-down {
+      to { background-position: 0 12px; }
+    }
+
+    .arch-caption {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .arch {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .arch-tall {
+        flex: none;
+      }
+
+      .arch-arrow {
+        width: 2px;
+        height: 30px;
+        margin: 12px 0;
+        background: linear-gradient(180deg, var(--green) 50%, transparent 50%);
+        background-size: 2px 12px;
+        animation-name: arch-flow-down;
+      }
+
+      .arch-arrow::after {
+        right: auto;
+        left: -4px;
+        top: auto;
+        bottom: -3px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid var(--green);
+        border-bottom: 0;
+      }
+    }
+
+    /* ------------------------------------------------------------
+       How We Work: step-by-step visual
+       ------------------------------------------------------------ */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      position: relative;
+      margin: 0;
+    }
+
+    .step::before {
+      content: "";
+      position: absolute;
+      top: 21px;
+      left: 44px;
+      right: -22px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--green), rgba(34, 197, 94, 0.25));
+    }
+
+    .step:nth-child(3n)::before {
+      display: none;
+    }
+
+    .step-badge {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #000;
+      font-size: 1.1rem;
+      font-weight: 700;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.14);
+    }
+
+    .step-body {
+      height: calc(100% - 58px);
+    }
+
+    .step-body h3 {
+      margin-bottom: 8px;
+    }
+
+    .step-body p {
+      margin-bottom: 0;
+      color: #dbe2e8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .step:nth-child(3n)::before {
+        display: block;
+      }
+
+      .step:nth-child(2n)::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .steps {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .step {
+        padding-left: 60px;
+      }
+
+      .step-badge {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin: 0;
+      }
+
+      .step:nth-child(n)::before {
+        display: block;
+        top: 44px;
+        bottom: -22px;
+        left: 21px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg, var(--green), rgba(34, 197, 94, 0.25));
+      }
+
+      .step:last-child::before {
+        display: none;
+      }
+
+      .step-body {
+        height: auto;
+      }
+    }
+
+
   </style>
 
 </head>
@@ -1363,6 +1745,7 @@
     <span class="nav-toggle-bar"></span>
   </button>
   <ul id="nav-links">
+    <li><a href="#top">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#tools">Technologies</a></li>
     <li><a href="#tiers">Service Tiers</a></li>
@@ -1408,6 +1791,121 @@
 </div>
 
 <main id="main-content">
+
+<section id="preview">
+  <h2>Visibility You Can Act On</h2>
+
+  <div class="showcase">
+    <div>
+      <p>Monitoring is only useful once it is designed and operated properly. We turn raw data into clear views, so your team can see what matters and act on it quickly.</p>
+      <ul class="showcase-list">
+        <li><span class="tick" aria-hidden="true">&#10003;</span><span><strong>Dashboards that mean something.</strong> Built around your services, not default templates.</span></li>
+        <li><span class="tick" aria-hidden="true">&#10003;</span><span><strong>Alerts that get acted on.</strong> Tuned thresholds and escalation paths, so noise stays low.</span></li>
+        <li><span class="tick" aria-hidden="true">&#10003;</span><span><strong>Reporting that supports decisions.</strong> Trends and capacity indicators for planning and reviews.</span></li>
+      </ul>
+    </div>
+
+    <figure class="dash-figure">
+      <div class="dash-card" role="img" aria-label="Illustrative example of a monitoring dashboard with status tiles, a response-time chart and a list of recent alerts">
+        <svg viewBox="0 0 640 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="dashArea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#22c55e" stop-opacity="0.35"/>
+              <stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="640" height="400" fill="#0d1117"/>
+
+          <rect width="640" height="36" fill="#161b22"/>
+          <line x1="0" y1="36" x2="640" y2="36" stroke="#2f3a44"/>
+          <circle cx="22" cy="18" r="5" fill="#ef4444"/>
+          <circle cx="40" cy="18" r="5" fill="#f59e0b"/>
+          <circle cx="58" cy="18" r="5" fill="#22c55e"/>
+          <text x="80" y="22" fill="#8b949e" font-size="12" font-family="Arial, Helvetica, sans-serif">Example dashboard (illustrative)</text>
+
+          <rect x="20" y="52" width="135" height="64" rx="10" fill="#161b22" stroke="#2f3a44"/>
+          <circle cx="36" cy="74" r="4" fill="#22c55e"/>
+          <text x="48" y="78" fill="#8b949e" font-size="12" font-family="Arial, Helvetica, sans-serif">Servers up</text>
+          <text x="36" y="104" fill="#e5e7eb" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">128 / 128</text>
+
+          <rect x="175" y="52" width="135" height="64" rx="10" fill="#161b22" stroke="#2f3a44"/>
+          <circle cx="191" cy="74" r="4" fill="#22c55e"/>
+          <text x="203" y="78" fill="#8b949e" font-size="12" font-family="Arial, Helvetica, sans-serif">Availability</text>
+          <text x="191" y="104" fill="#e5e7eb" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">99.9%</text>
+
+          <rect x="330" y="52" width="135" height="64" rx="10" fill="#161b22" stroke="#2f3a44"/>
+          <circle class="dash-warn" cx="346" cy="74" r="4" fill="#f59e0b"/>
+          <circle cx="346" cy="74" r="4" fill="#f59e0b"/>
+          <text x="358" y="78" fill="#8b949e" font-size="12" font-family="Arial, Helvetica, sans-serif">Open alerts</text>
+          <text x="346" y="104" fill="#e5e7eb" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">3</text>
+
+          <rect x="485" y="52" width="135" height="64" rx="10" fill="#161b22" stroke="#2f3a44"/>
+          <circle cx="501" cy="74" r="4" fill="#22c55e"/>
+          <text x="513" y="78" fill="#8b949e" font-size="12" font-family="Arial, Helvetica, sans-serif">Response</text>
+          <text x="501" y="104" fill="#e5e7eb" font-size="24" font-weight="700" font-family="Arial, Helvetica, sans-serif">182 ms</text>
+
+          <rect x="20" y="132" width="400" height="248" rx="10" fill="#161b22" stroke="#2f3a44"/>
+          <text x="36" y="158" fill="#e5e7eb" font-size="13" font-weight="700" font-family="Arial, Helvetica, sans-serif">Response time (24 h)</text>
+          <line x1="36" y1="196" x2="404" y2="196" stroke="#21262d"/>
+          <line x1="36" y1="236" x2="404" y2="236" stroke="#21262d"/>
+          <line x1="36" y1="276" x2="404" y2="276" stroke="#21262d"/>
+          <line x1="36" y1="316" x2="404" y2="316" stroke="#21262d"/>
+          <line x1="36" y1="352" x2="404" y2="352" stroke="#30363d"/>
+          <text x="36" y="371" fill="#8b949e" font-size="11" font-family="Arial, Helvetica, sans-serif">00:00</text>
+          <text x="220" y="371" fill="#8b949e" font-size="11" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">12:00</text>
+          <text x="404" y="371" fill="#8b949e" font-size="11" text-anchor="end" font-family="Arial, Helvetica, sans-serif">now</text>
+
+          <path class="dash-area" d="M40 305 L80 291 L120 301 L160 261 L200 275 L240 231 L280 251 L320 207 L360 221 L400 189 L400 352 L40 352 Z" fill="url(#dashArea)"/>
+          <path class="dash-line" pathLength="1" d="M40 305 L80 291 L120 301 L160 261 L200 275 L240 231 L280 251 L320 207 L360 221 L400 189" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle class="dash-pulse" cx="400" cy="189" r="4" fill="#22c55e"/>
+          <circle cx="400" cy="189" r="4" fill="#22c55e"/>
+
+          <rect x="440" y="132" width="180" height="248" rx="10" fill="#161b22" stroke="#2f3a44"/>
+          <text x="456" y="158" fill="#e5e7eb" font-size="13" font-weight="700" font-family="Arial, Helvetica, sans-serif">Recent alerts</text>
+
+          <circle cx="456" cy="190" r="4" fill="#f59e0b"/>
+          <text x="470" y="194" fill="#e5e7eb" font-size="12" font-family="Arial, Helvetica, sans-serif">Disk space warning</text>
+          <text x="470" y="210" fill="#8b949e" font-size="10.5" font-family="Arial, Helvetica, sans-serif">web-02 &#183; 5 min ago</text>
+          <line x1="456" y1="220" x2="604" y2="220" stroke="#21262d"/>
+
+          <circle cx="456" cy="236" r="4" fill="#22c55e"/>
+          <text x="470" y="240" fill="#e5e7eb" font-size="12" font-family="Arial, Helvetica, sans-serif">CPU back to normal</text>
+          <text x="470" y="256" fill="#8b949e" font-size="10.5" font-family="Arial, Helvetica, sans-serif">app-01 &#183; 22 min ago</text>
+          <line x1="456" y1="266" x2="604" y2="266" stroke="#21262d"/>
+
+          <circle cx="456" cy="282" r="4" fill="#22c55e"/>
+          <text x="470" y="286" fill="#e5e7eb" font-size="12" font-family="Arial, Helvetica, sans-serif">Backup completed</text>
+          <text x="470" y="302" fill="#8b949e" font-size="10.5" font-family="Arial, Helvetica, sans-serif">db-01 &#183; 1 h ago</text>
+          <line x1="456" y1="312" x2="604" y2="312" stroke="#21262d"/>
+
+          <circle cx="456" cy="328" r="4" fill="#22c55e"/>
+          <text x="470" y="332" fill="#e5e7eb" font-size="12" font-family="Arial, Helvetica, sans-serif">Service restarted</text>
+          <text x="470" y="348" fill="#8b949e" font-size="10.5" font-family="Arial, Helvetica, sans-serif">mail-01 &#183; 3 h ago</text>
+        </svg>
+      </div>
+
+      <figcaption class="dash-caption">Illustrative example, not client data.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<script>
+(function () {
+  var card = document.querySelector(".dash-card");
+  if (!card || !("IntersectionObserver" in window)) return;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
+  card.classList.add("armed");
+  new IntersectionObserver(function (entries, observer) {
+    if (entries[0].isIntersecting) {
+      card.classList.add("is-live");
+      observer.disconnect();
+    }
+  }, { threshold: 0.35 }).observe(card);
+})();
+</script>
+
 
 <section id="about">
   <h2>About Us</h2>
@@ -1644,6 +2142,79 @@
       <p>Commercial platform for security, observability, and data analytics. A platform we are actively building expertise in.</p>
     </a>
   </div>
+
+    <h3 class="other-heading">How the Pieces Fit Together</h3>
+  <p class="other-note">A simplified view of how monitoring data flows from your environment to the people who act on it.</p>
+
+  <div class="arch-wrap">
+    <div class="arch" role="group" aria-label="Simplified monitoring architecture: servers, network devices, applications and cloud services are collected by agents and exporters, analysed in a monitoring platform, and turned into dashboards, alerts and reports.">
+
+      <div class="arch-col">
+        <p class="arch-title">Your environment</p>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="24" height="7" rx="2"/><rect x="2" y="11" width="24" height="7" rx="2"/><rect x="2" y="20" width="24" height="6" rx="2"/><circle cx="6.5" cy="5.5" r="0.8" fill="currentColor"/><circle cx="6.5" cy="14.5" r="0.8" fill="currentColor"/><circle cx="6.5" cy="23" r="0.8" fill="currentColor"/></svg>
+          <div><strong>Servers</strong><small>Windows &amp; Linux</small></div>
+        </div>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="5" r="3.5"/><circle cx="5" cy="22" r="3.5"/><circle cx="23" cy="22" r="3.5"/><line x1="13" y1="8.3" x2="6" y2="18.7"/><line x1="15" y1="8.3" x2="22" y2="18.7"/><line x1="8.5" y1="22" x2="19.5" y2="22"/></svg>
+          <div><strong>Network devices</strong><small>Switches, routers, links</small></div>
+        </div>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="24" height="22" rx="3"/><line x1="2" y1="10" x2="26" y2="10"/><line x1="7" y1="16" x2="21" y2="16"/><line x1="7" y1="20.5" x2="15" y2="20.5"/></svg>
+          <div><strong>Applications</strong><small>Services &amp; health checks</small></div>
+        </div>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 22C3 22 2 14 8 14C8 7 19 6 21 12C27 12 27 22 21 22Z"/></svg>
+          <div><strong>Cloud services</strong><small>AWS, Azure, Google Cloud</small></div>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true"></div>
+
+      <div class="arch-col">
+        <p class="arch-title">Collect</p>
+        <div class="arch-node arch-tall">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2,14 8,14 11,6 16,22 19,14 26,14"/></svg>
+          <div><strong>Agents &amp; exporters</strong><small>Metrics, logs and checks</small></div>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true"></div>
+
+      <div class="arch-col">
+        <p class="arch-title">Monitor &amp; analyse</p>
+        <div class="arch-node arch-tall">
+          <strong>Monitoring platform</strong>
+          <span class="arch-chip">Icinga</span>
+          <span class="arch-chip">Prometheus</span>
+          <span class="arch-chip">OpenText AIOM</span>
+          <span class="arch-note">or the platform you prefer</span>
+        </div>
+      </div>
+
+      <div class="arch-arrow" aria-hidden="true"></div>
+
+      <div class="arch-col">
+        <p class="arch-title">Visualise &amp; act</p>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="14" width="5" height="11" rx="1"/><rect x="11.5" y="8" width="5" height="17" rx="1"/><rect x="20" y="3" width="5" height="22" rx="1"/></svg>
+          <div><strong>Dashboards</strong><small>For example Grafana</small></div>
+        </div>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3c-5 0-7 4-7 8 0 5-3 6-3 8h20c0-2-3-3-3-8 0-4-2-8-7-8z"/><path d="M11 23a3 3 0 0 0 6 0"/></svg>
+          <div><strong>Alerts</strong><small>Notifications and escalation</small></div>
+        </div>
+        <div class="arch-node">
+          <svg class="arch-icon" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="18" height="24" rx="3"/><line x1="10" y1="10" x2="18" y2="10"/><line x1="10" y1="15" x2="18" y2="15"/><line x1="10" y1="20" x2="15" y2="20"/></svg>
+          <div><strong>Reports</strong><small>Trends and capacity</small></div>
+        </div>
+      </div>
+
+    </div>
+    <p class="arch-caption">Simplified, illustrative arch
+itecture. The exact design depends on your environment and tools.</p>
+  </div>
+
 
   <h3 class="other-heading">Other Tools We Can Implement</h3>
   <p class="other-note">Other platforms we are able to take on. Ask us about your tool and we will be upfront about our experience with it.</p>
@@ -1895,23 +2466,54 @@
 </section>
 
 
-<section>
+<section id="how-we-work">
   <h2>How We Work</h2>
-  <ul>
-    <li>Assess environments, monitoring maturity, operational pain points, and business objectives</li>
-    <li>Review existing tools, licensing, integrations, dashboards, alerts, and reporting needs</li>
-    <li>Identify visibility gaps across infrastructure, applications, network, cloud, and security layers</li>
-    <li>Recommend suitable open-source, commercial, or cloud-native monitoring platforms</li>
-    <li>Design monitoring coverage aligned with service criticality and business impact</li>
-    <li>Deploy and configure monitoring checks, agents, collectors, exporters, and integrations</li>
-    <li>Configure dashboards, alert rules, notification channels, escalation paths, and reporting views</li>
-    <li>Define thresholds aligned with operational risk and service impact</li>
-    <li>Test alerts, validate monitoring accuracy, and reduce unnecessary noise</li>
-    <li>Document configurations, dependencies, escalation flows, and reporting requirements</li>
-    <li>Continuously monitor, tune, and refine alerts, dashboards, and checks</li>
-    <li>Provide reporting and improvement recommendations</li>
-  </ul>
+  <ol class="steps">
+    <li class="step">
+      <span class="step-badge" aria-hidden="true">1</span>
+      <div class="card step-body">
+        <h3>Assess</h3>
+        <p>We assess your environment, monitoring maturity and pain points, review your existing tools, licensing and alerts, and identify visibility gaps across infrastructure, applications, network, cloud and security layers.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-badge" aria-hidden="true">2</span>
+      <div class="card step-body">
+        <h3>Recommend &amp; design</h3>
+        <p>We recommend suitable open-source, commercial or cloud-native platforms, then design monitoring coverage aligned with service criticality and business impact.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-badge" aria-hidden="true">3</span>
+      <div class="card step-body">
+        <h3>Deploy &amp; configure</h3>
+        <p>We deploy checks, agents, collectors, exporters and integrations, then set up dashboards, alert rules, notification channels, escalation paths and reporting views, with thresholds based on operational risk.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-badge" aria-hidden="true">4</span>
+      <div class="card step-body">
+        <h3>Test &amp; tune</h3>
+        <p>We test alerts, validate monitoring accuracy, and reduce unnecessary noise.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-badge" aria-hidden="true">5</span>
+      <div class="card step-body">
+        <h3>Document</h3>
+        <p>We document configurations, dependencies, escalation flows and reporting requirements.</p>
+      </div>
+    </li>
+    <li class="step">
+      <span class="step-badge" aria-hidden="true">6</span>
+      <div class="card step-body">
+        <h3>Improve</h3>
+        <p>We continue to monitor, tune and refine alerts, dashboards and checks, and provide reporting and improvement recommendations.</p>
+      </div>
+    </li>
+  </ol>
 </section>
+
 
 <section>
   <h2>Client Onboarding</h2>
