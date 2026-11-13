@@ -12,6 +12,7 @@ const TOPICS = new Set([
   "New monitoring or observability setup",
   "Improve or tune existing monitoring",
   "Security monitoring or SIEM",
+  "IT equipment quote",
   "Not sure yet",
 ]);
 
