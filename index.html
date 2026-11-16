@@ -1822,7 +1822,19 @@
       }
     }
 
+    .hero-logo {
+  margin-bottom: 22px;
+}
 
+.hero-logo img {
+  max-width: 170px;
+}
+
+@media (max-width: 768px) {
+  .hero-logo img {
+    margin: 0 auto;
+  }
+}
 
   </style>
 
@@ -1860,7 +1872,10 @@
   </svg>
 
   <div class="hero">
-    <span class="eyebrow">Monitoring • Observability • Security</span>
+    <div class="logo hero-logo">
+    <img src="logo.jpg" alt="TechEssentials logo">
+  </div>
+      <span class="eyebrow">Monitoring • Observability • Security</span>
     <h1>Simplifying Daily Operations</h1>
     <p class="tagline">Insight That Keeps You Running</p>
     <p>We implement, configure, and manage monitoring, observability, and security platforms so your IT environment stays visible, reliable, and secure.</p>
