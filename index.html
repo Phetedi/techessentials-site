@@ -1726,6 +1726,103 @@
       }
     }
 
+       /* ------------------------------------------------------------
+       Hero illustration: text on the left, monitoring "hub" on the right
+       ------------------------------------------------------------ */
+    header.hero-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    header.hero-header > .hero-visual {
+      position: relative;
+      z-index: 1;
+    }
+
+    header.hero-header .hero {
+      max-width: none;
+      text-align: left;
+    }
+
+    header.hero-header .hero p {
+      margin-left: 0;
+    }
+
+    .hero-visual {
+      justify-self: end;
+      width: 100%;
+      max-width: 470px;
+      margin: 0;
+    }
+
+    .hero-visual svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 0 26px rgba(34, 197, 94, 0.12));
+    }
+
+    /* Data flowing from each source into the hub */
+    .hv-flow {
+      stroke-dasharray: 3 9;
+      animation: hv-flow 1.3s linear infinite;
+    }
+
+    @keyframes hv-flow {
+      to { stroke-dashoffset: -12; }
+    }
+
+    /* One slow ping from the hub, like a heartbeat */
+    .hv-ping {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hv-ping 3.2s ease-out infinite;
+    }
+
+    @keyframes hv-ping {
+      0%   { transform: scale(1);   opacity: 0.55; }
+      100% { transform: scale(2.1); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      header.hero-header {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+        text-align: center;
+        gap: 24px;
+      }
+
+      header.hero-header .hero {
+        text-align: center;
+      }
+
+      header.hero-header .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-visual {
+        justify-self: center;
+        max-width: 340px;
+      }
+    }
+
+    /* Keep hero content aligned with the 1100px sections on wide screens */
+    header.hero-header {
+      padding-left: max(60px, calc((100vw - 1100px) / 2 + 20px));
+      padding-right: max(60px, calc((100vw - 1100px) / 2 + 20px));
+    }
+
+    @media (max-width: 768px) {
+      header.hero-header {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+
 
   </style>
 
@@ -1761,9 +1858,6 @@
     <path class="hero-pulse-base" pathLength="1" d="M0 70 H240 L254 25 L276 105 L292 55 L302 70 H620 L634 25 L656 105 L672 55 L682 70 H980 L994 25 L1016 105 L1032 55 L1042 70 H1200"/>
     <path class="hero-pulse-glow" pathLength="1" d="M0 70 H240 L254 25 L276 105 L292 55 L302 70 H620 L634 25 L656 105 L672 55 L682 70 H980 L994 25 L1016 105 L1032 55 L1042 70 H1200"/>
   </svg>
-  <div class="logo">
-    <img src="logo.jpg" alt="TechEssentials logo">
-  </div>
 
   <div class="hero">
     <span class="eyebrow">Monitoring • Observability • Security</span>
@@ -1771,7 +1865,115 @@
     <p class="tagline">Insight That Keeps You Running</p>
     <p>We implement, configure, and manage monitoring, observability, and security platforms so your IT environment stays visible, reliable, and secure.</p>
   </div>
+
+  <figure class="hero-visual" role="img" aria-label="Illustration: servers, network devices, cloud services, applications, security and dashboards all feeding data into one central monitoring hub">
+    <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="hvGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#22c55e" stop-opacity="0.32"/>
+          <stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Orbit rings -->
+      <circle cx="260" cy="210" r="150" fill="none" stroke="#22c55e" stroke-opacity="0.14" stroke-dasharray="2 6"/>
+      <circle cx="260" cy="210" r="96" fill="none" stroke="#22c55e" stroke-opacity="0.10"/>
+
+      <!-- Hub glow -->
+      <circle cx="260" cy="210" r="110" fill="url(#hvGlow)"/>
+
+      <!-- Connector lines: faint base, then animated flow towards the hub -->
+      <g stroke="#22c55e" stroke-opacity="0.22" stroke-width="1.5" fill="none">
+        <line x1="260" y1="60"  x2="260" y2="210"/>
+        <line x1="390" y1="135" x2="260" y2="210"/>
+        <line x1="390" y1="285" x2="260" y2="210"/>
+        <line x1="260" y1="360" x2="260" y2="210"/>
+        <line x1="130" y1="285" x2="260" y2="210"/>
+        <line x1="130" y1="135" x2="260" y2="210"/>
+      </g>
+      <g stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" fill="none">
+        <line class="hv-flow" x1="260" y1="86"  x2="260" y2="210"/>
+        <line class="hv-flow" x1="367" y1="148" x2="260" y2="210"/>
+        <line class="hv-flow" x1="367" y1="272" x2="260" y2="210"/>
+        <line class="hv-flow" x1="260" y1="334" x2="260" y2="210"/>
+        <line class="hv-flow" x1="153" y1="272" x2="260" y2="210"/>
+        <line class="hv-flow" x1="153" y1="148" x2="260" y2="210"/>
+      </g>
+
+      <!-- Hub -->
+      <circle class="hv-ping" cx="260" cy="210" r="44" fill="none" stroke="#22c55e" stroke-width="2"/>
+      <circle cx="260" cy="210" r="44" fill="#0d1117" stroke="#22c55e" stroke-width="2.5"/>
+      <polyline points="234,212 246,212 252,192 262,230 270,206 276,212 286,212" fill="none" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- Node: servers (top) -->
+      <circle cx="260" cy="60" r="27" fill="#151b22" stroke="#22c55e" stroke-opacity="0.55" stroke-width="1.5"/>
+      <g transform="translate(248 48)" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="5.5" rx="1.5"/>
+        <rect x="2" y="9.5" width="20" height="5.5" rx="1.5"/>
+        <rect x="2" y="17" width="20" height="5.5" rx="1.5"/>
+        <circle cx="6" cy="4.75" r="0.6" fill="#22c55e"/>
+        <circle cx="6" cy="12.25" r="0.6" fill="#22c55e"/>
+        <circle cx="6" cy="19.75" r="0.6" fill="#22c55e"/>
+      </g>
+
+      <!-- Node: network (upper right) -->
+      <circle cx="390" cy="135" r="27" fill="#151b22" stroke="#22c55e" stroke-opacity="0.55" stroke-width="1.5"/>
+      <g transform="translate(378 123)" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="5" r="3"/>
+        <circle cx="5" cy="19" r="3"/>
+        <circle cx="19" cy="19" r="3"/>
+        <line x1="11" y1="8" x2="6" y2="16"/>
+        <line x1="13" y1="8" x2="18" y2="16"/>
+        <line x1="8" y1="19" x2="16" y2="19"/>
+      </g>
+
+      <!-- Node: cloud (lower right) -->
+      <circle cx="390" cy="285" r="27" fill="#151b22" stroke="#22c55e" stroke-opacity="0.55" stroke-width="1.5"/>
+      <g transform="translate(378 273)" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 19a4.5 4.5 0 0 1-.6-8.9A6.5 6.5 0 0 1 18.8 9.6 4.7 4.7 0 0 1 18 19Z"/>
+      </g>
+
+      <!-- Node: applications (bottom) -->
+      <circle cx="260" cy="360" r="27" fill="#151b22" stroke="#22c55e" stroke-opacity="0.55" stroke-width="1.5"/>
+      <g transform="translate(248 348)" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="18" rx="2.5"/>
+        <line x1="2" y1="9" x2="22" y2="9"/>
+        <polyline points="6.5,16 10,13 13,15.5 17.5,12"/>
+      </g>
+
+      <!-- Node: security (lower left) -->
+      <circle cx="130" cy="285" r="27" fill="#151b22" stroke="#22c55e" stroke-opacity="0.55" stroke-width="1.5"/>
+      <g transform="translate(118 273)" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.5l8 3v6.3c0 5-3.4 8.2-8 9.7-4.6-1.5-8-4.7-8-9.7V5.5z"/>
+        <polyline points="8.5,12 11,14.5 15.5,9.5"/>
+      </g>
+
+      <!-- Node: dashboards (upper left) -->
+      <circle cx="130" cy="135" r="27" fill="#151b22" stroke="#22c55e" stroke-opacity="0.55" stroke-width="1.5"/>
+      <g transform="translate(118 123)" fill="none" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3.5" y="12" width="4.5" height="9" rx="1"/>
+        <rect x="9.75" y="6" width="4.5" height="15" rx="1"/>
+        <rect x="16" y="2.5" width="4.5" height="18.5" rx="1"/>
+      </g>
+
+      <!-- Floating card: status (top right) -->
+      <g transform="translate(396 14)">
+        <rect width="112" height="44" rx="10" fill="#161b22" stroke="#2f3a44"/>
+        <circle cx="16" cy="22" r="4" fill="#22c55e"/>
+        <text x="28" y="20" fill="#e5e7eb" font-size="11" font-weight="700" font-family="Arial, Helvetica, sans-serif">All checks OK</text>
+        <text x="28" y="34" fill="#8b949e" font-size="9.5" font-family="Arial, Helvetica, sans-serif">Illustrative</text>
+      </g>
+
+      <!-- Floating card: response time (bottom left) -->
+      <g transform="translate(8 362)">
+        <rect width="124" height="48" rx="10" fill="#161b22" stroke="#2f3a44"/>
+        <text x="12" y="18" fill="#8b949e" font-size="10" font-family="Arial, Helvetica, sans-serif">Response time</text>
+        <polyline points="12,38 28,32 44,35 60,26 76,30 92,22 112,25" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </figure>
 </header>
+
 
 <div class="why-choose-strip">
   <div class="why-choose-box">
