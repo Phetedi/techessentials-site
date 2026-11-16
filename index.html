@@ -1726,6 +1726,72 @@
       }
     }
 
+        /* ------------------------------------------------------------
+       Fluid page width: content grows with the screen instead of
+       staying locked at 1100px. Paste at the very END of <style>.
+       ------------------------------------------------------------ */
+    :root {
+      /* 1100px on laptops, grows on big monitors, never wider than 1560px */
+      --container: clamp(1100px, 78vw, 1560px);
+      /* side space so nav, hero and sections all line up with the content edge */
+      --gutter: max(28px, calc((100vw - var(--container)) / 2 + 20px));
+    }
+
+    /* Slightly larger base text on big monitors (16px up to about 19px) */
+    html {
+      font-size: clamp(16px, 0.5vw + 8px, 19px);
+      -webkit-text-size-adjust: 100%;
+    }
+
+    section,
+    .why-choose-strip {
+      max-width: var(--container);
+    }
+
+    /* Nav and hero span the full width but line up with the content below */
+    .site-nav {
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
+
+    header.hero-header {
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
+
+    /* Bigger screens: a little more presence in the hero and headings */
+    @media (min-width: 1400px) {
+      .logo img {
+        max-width: 250px;
+      }
+
+      .hero {
+        max-width: 860px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 2.6vw, 3rem);
+      }
+
+      h2 {
+        font-size: clamp(1.7rem, 2.2vw, 2.3rem);
+      }
+    }
+
+    /* Tablets and phones: keep the compact spacing that was already there */
+    @media (max-width: 860px) {
+      .site-nav {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header.hero-header {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
 
   </style>
 
